@@ -12,14 +12,18 @@
 
 <body>
     <nav>
-        <h4>Node Mysql</h4>
+        <h4 href="/">BS</h4>
         <ul>
             <li><a href="/">Home</a></li>
-            <li><a href="/loign">Login</a></li>
+            <li><a href="/login">Users Login</a></li>
+            <li><a href="/loginBanker">Bankers Login</a></li>
             <li><a href="/register">Register</a></li>
         </ul>
     </nav>
     <div class="container mt-4">
+        {{#if message}}
+        <h4 class="alert alert-danger mt-4">{{message}}</h4>
+        {{/if}}
         <div class="card">
             <div class="card-header">Register form</div>
             <div class="card-body">
@@ -28,6 +32,10 @@
                         <label for="name">Name</label>
                         <input type="text" class="form-control" id="name" name="name">
 
+                    </div>
+                    <div class="form-group">
+                        <label for="mobile">Mobile</label>
+                        <input type="text" class="form-control" id="mobile" name="mobile">
                     </div>
                     <div class="form-group">
                         <label for="email">Email</label>
@@ -41,6 +49,14 @@
                         <label for="passwordconfirm">Confirm Password</label>
                         <input type="password" class="form-control" id="passwordconfirm" name="passwordconfirm">
                     </div>
+                    <div class="form-group">
+                        <label for="usertype">User Type</label>
+                        <select class="form-control" id="usertype" name="usertype">
+                            <option>Select option</option>
+                            <option>Customer</option>
+                            <option>Banker</option>
+                        </select>
+                    </div>
                     <!--<div class="form-group form-check">
                         <input type="checkbox" class="form-check-input" id="exampleCheck1">
                         <label class="form-check-label" for="exampleCheck1">Check me out</label>
@@ -49,9 +65,7 @@
                 </form>
             </div>
         </div>
-        {{#if message}}
-        <h4 class="alert alert-danger mt-4">{{message}}</h4>
-        {{/if}}
+
     </div>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"

@@ -1,15 +1,41 @@
 const express = require('express');
+var session = require('express-session');
 const router = express.Router();
+const passport = require('passport');
 
 router.get('/', (req, res) => {
-    get.render('index');
+    res.render('index');
 });
 
 router.get('/register', (req, res) => {
-    get.render('register');
+    res.render('register');
 });
+router.use(passport.initialize());
+router.use(passport.session());
+
 router.get('/login', (req, res) => {
-    get.render('login');
+    res.render('login');
 });
+router.get('/loginBanker', (req, res) => {
+    res.render('loginBanker');
+});
+router.get('/profile', (req, res) => {
+    res.render('profile');
+});
+router.get('/logout', (req, res) => {
+
+    res.redirect('/');
+})
+router.get('/bankerprofile', (req, res) => {
+    res.render('bankerprofile');
+});
+router.get('/list', (req, res) => {
+    res.render('list');
+});
+router.get('/bankerlogout', (req, res) => {
+    req.session.destroy();
+    res.redirect('/');
+})
+
 
 module.exports = router;
