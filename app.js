@@ -1,6 +1,7 @@
 const express = require("express");
 const path = require("path");
 const mysql = require("mysql");
+const knex = require("knex");
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 var session = require('express-session');
@@ -112,7 +113,7 @@ app.put('/withdraw/:id', (req, res) => {
 
     db.query(sql, [req.params.id], (err, rows, fields) => {
         if (!err)
-            res.send('Deposit Successfully!!');
+            res.send('withdraw Successfully!!');
         else
             console.log(err);
     });
